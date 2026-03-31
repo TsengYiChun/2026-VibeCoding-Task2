@@ -1,37 +1,276 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的天文攝影個人網站</title>
+  <meta name="description" content="這是一個天文攝影個人品牌網站，用於介紹攝影背景、拍攝技能、作品集展示以及聯絡方式，呈現專業且完整的個人形象。">
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; max-width: 100%; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", Arial, sans-serif; line-height: 1.6; }
-    img { max-width: 100%; height: auto; display: block; }
-    .container { width: 1920px; margin: 0 auto; padding: 16px; }
-    nav a { margin-right: 12px; text-decoration: none; }
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-    .col-12 { grid-column: span 12; }
-    @media (min-width: 768px) { .col-md-6 { grid-column: span 6; } }
-    .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    /* CSS:BASE-START */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #020617;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: #22d3ee;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      background-color: #020617;
+      border-bottom: 1px solid #1e293b;
+      z-index: 100;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    }
+
+    .nav-logo {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+    }
+
+    footer {
+      border-top: 1px solid #1e293b;
+      padding: 24px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    /* CSS:BASE-END */
+
+    /* CSS:HERO-START */
+    .section-hero {
+      background-color: #020617;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .hero-image {
+      margin-top: 16px;
+    }
+    /* CSS:HERO-END */
+
+    /* CSS:ABOUT-START */
+    .section-about {
+      background-color: #020617;
+    }
+    /* CSS:ABOUT-END */
+
+    /* CSS:SKILLS-START */
+    .section-skills {
+      background-color: #020617;
+    }
+    /* CSS:SKILLS-END */
+
+    /* CSS:PROJECTS-START */
+    .section-projects {
+      background-color: #020617;
+    }
+    /* CSS:PROJECTS-END */
+
+    /* CSS:CONTACT-START */
+    .section-contact {
+      background-color: #020617;
+    }
+    /* CSS:CONTACT-END */
+
+    /* CSS:RWD-START */
+    @media (min-width: 768px) {
+      .hero-content {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .hero-text,
+      .hero-image {
+        width: 50%;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
+    /* CSS:RWD-END */
   </style>
 </head>
-<body>
-  <header class="container" role="banner">
-    <nav aria-label="主選單">
-      <a href="#about">關於我</a>
-      <a href="#projects">作品集</a>
-      <a href="https://example.com/blog">技術部落格</a>
-      <a href="mailto:me@example.com">聯絡我</a>
-    </nav>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <h1>你好，我是小明：前端工程師新手之路</h1>
-    <p>歡迎來到我的個人網站！這裡整理了學習紀錄、Side Project 與實作心得。</p>
-  </header>
 
-  <footer class="container" role="contentinfo">
-    <p>© 2025 My Portfolio · <a href="#">GitHub</a></p>
-    <img src="https://source.unsplash.com/600x200/?technology,abstract" alt="">
-  </footer>
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <div class="container nav">
+        <div class="nav-logo">我的天文攝影個人網站</div>
+        <nav class="nav-links">
+          <a class="nav-link" href="#hero">首頁</a>
+          <a class="nav-link" href="#about">關於我</a>
+          <a class="nav-link" href="#skills">技能</a>
+          <a class="nav-link" href="#projects">作品集</a>
+          <a class="nav-link" href="#contact">聯絡我</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- SECTION:HERO-START -->
+      <section id="hero" class="section section-hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">天文攝影個人品牌網站主視覺區（Hero 區占位）</h1>
+            <p>這裡未來會放置一句話自我介紹、攝影定位（例如天文攝影師）、以及行動呼籲（例如瀏覽作品或聯絡我）。</p>
+            <p>之後會用 Section SDD 的 Prompt 產生正式文案與版面，再把整個 section 貼回來取代這一區。</p>
+          </div>
+          <div class="hero-image">
+            <img src="image/ME.jpg"
+                 alt="我"
+                 loading="lazy">
+          </div>
+        </div>
+      </section>
+      <!-- SECTION:HERO-END -->
+
+      <!-- SECTION:ABOUT-START -->
+      <section id="about" class="section section-about" aria-labelledby="about-heading">
+        <div class="container hero-content">
+        <div class="container">
+          <h2 id="about-heading" class="section-title">關於我（之後會用 Section SDD 替換）</h2>
+          <p>這裡目前是 About 區的占位內容，之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在這兩個註解中間，完全取代現在這一區。</p>
+          <p>未來會包含個人背景、攝影經歷與拍攝理念。</p>
+        </div>
+        <div class="hero-image">
+            <img src="image/肉圓.jpg"
+                 alt="我的貓咪"
+                 loading="lazy">
+          </div>
+          </div>
+      </section>
+      <!-- SECTION:ABOUT-END -->
+
+      <!-- SECTION:SKILLS-START -->
+      <section id="skills" class="section section-skills" aria-labelledby="skills-heading">
+        <div class="container hero-content">
+        <div class="container">
+          <h2 id="skills-heading" class="section-title">技能（之後會用 Section SDD 替換）</h2>
+          <p>這裡目前是 Skills 區的占位內容，之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在這兩個註解中間，完全取代現在這一區。</p>
+          <p>未來會列出拍攝技巧、後製能力與使用設備。</p>
+        </div>
+        <div class="hero-image">
+            <img src="image/925HD.jpg"
+                 alt="我的裝備"
+                 loading="lazy">
+          </div>
+          </div>
+      </section>
+      <!-- SECTION:SKILLS-END -->
+
+      <!-- SECTION:PROJECTS-START -->
+      <section id="projects" class="section section-projects" aria-labelledby="projects-heading">
+        <div class="container hero-content">
+        <div class="container">
+          <h2 id="projects-heading" class="section-title">作品集（之後會用 Section SDD 替換）</h2>
+          <p>這裡目前是 Projects 區的占位內容，之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在這兩個註解中間，完全取代現在這一區。</p>
+          <p>未來會展示天文攝影作品、拍攝地點與拍攝說明。</p>
+        </div>
+        <div class="hero-image">
+            <img src="image/面紗星雲.jpg"
+                 alt="面紗星雲"
+                 loading="lazy">
+          </div>
+          </div>
+      </section>
+      <!-- SECTION:PROJECTS-END -->
+
+      <!-- SECTION:CONTACT-START -->
+      <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
+        <div class="container">
+          <h2 id="contact-heading" class="section-title">聯絡我（之後會用 Section SDD 替換）</h2>
+          <p>這裡目前是 Contact 區的占位內容，之後會用 Section SDD 的 Prompt 產生新的 section，請把新的 section 程式碼整段貼在這兩個註解中間，完全取代現在這一區。</p>
+          <p>
+            Email：<a href="mailto:astro@example.com">astro@example.com</a><br>
+            電話：<a href="tel:+886900000000">+886-900-000-000</a><br>
+            GitHub：<a href="https://github.com/yourname">https://github.com/yourname</a><br>
+            LinkedIn：<a href="https://www.linkedin.com/in/yourname">https://www.linkedin.com/in/yourname</a>
+          </p>
+        </div>
+      </section>
+      <!-- SECTION:CONTACT-END -->
+
+    </main>
+
+    <footer>
+      <div class="container">
+        © 2026 我的天文攝影個人網站. All rights reserved.
+      </div>
+    </footer>
+
+  </div>
 </body>
 </html>
